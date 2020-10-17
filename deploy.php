@@ -7,28 +7,28 @@ require 'recipe/laravel.php';
 set('application', 'WebStack-Laravel');
 
 // Project repository
-set('repository', 'https://github.com/hui-ho/WebStack-Laravel.git');
+set('repository', 'https://github.com/luoweikingjj/WebStack-Laravel.git');
 
-// Shared files/dirs between deploys 
+// Shared files/dirs between deploys
 add('shared_files', []);
 add('shared_dirs', []);
 
-// Writable dirs by web server 
+// Writable dirs by web server
 set('writable_dirs', []);
 
 set('keep_releases', 5);
 
 // Hosts
 
-host('101.37.175.145')
-    ->stage('develop')
-    ->user('root')
+host('111.231.203.189')
+    //->stage('develop')
+    ->user('deployer')
     ->port(22)
-    ->identityFile('/Users/hui-ho/.ssh/id_rsa')
-    ->become('www-data')
+    ->identityFile('~/.ssh/deployerkey')
+    //->become('www-data')
     ->set('branch', 'develop')
     ->set('deploy_path', '/var/www/webstack');
-    
+
 // Tasks
 
 desc('Upload .env file');
