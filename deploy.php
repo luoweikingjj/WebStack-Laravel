@@ -21,19 +21,18 @@ set('keep_releases', 5);
 // Hosts
 
 host('111.231.203.189')
-    //->stage('develop')
     ->user('deployer')
     ->port(22)
     ->identityFile('~/.ssh/deployerkey')
     //->become('www-data')
-    ->set('branch', 'develop')
+    ->set('branch', 'master')
     ->set('deploy_path', '/var/www/webstack');
 
 // Tasks
 
 desc('Upload .env file');
 task('env:upload', function() {
-    upload('.env.develop', '{{release_path}}/.env');
+    upload('.env.master', '{{release_path}}/.env');
 });
 
 after('deploy:shared', 'env:upload');
