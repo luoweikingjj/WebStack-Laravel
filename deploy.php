@@ -7,7 +7,7 @@ require 'recipe/laravel.php';
 set('application', 'WebStack-Laravel');
 
 // Project repository
-set('repository', 'https://github.com/luoweikingjj/WebStack-Laravel.git');
+set('repository', 'https://github.com.cnpmjs.org/luoweikingjj/WebStack-Laravel.git');
 
 // Shared files/dirs between deploys
 add('shared_files', []);
